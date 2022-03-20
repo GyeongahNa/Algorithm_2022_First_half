@@ -50,9 +50,8 @@ int erase() {
     int cnt = 0;
     for (int x=0; x<M; x++) {
         for (int y=0; y<N; y++) {
-            //(x, y)를 기준으로 4개가 같은 그림인지 확인
             if (!check(x, y)) continue;
-            //4개가 같은 그림이면 지우기
+            //(x, y)를 기준으로 4개가 같은 그림인지 확인 후 지우기
             for (int k=0; k<4; k++) {
                 int nx = x+dx[k];
                 int ny = y+dy[k];
@@ -95,7 +94,7 @@ int solution(int m, int n, vector<string> board) {
     while (1) {
         //4개가 뭉쳐있는 곳을 찾아 지우기
         int cnt = erase();
-        //지운 개수가 0개 이면 종류
+        //지운 개수가 0개 이면 종료
         if (!cnt) break;
         ret += cnt;
         //밑으로 블럭 이동
